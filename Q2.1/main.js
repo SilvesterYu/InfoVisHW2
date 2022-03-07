@@ -31,7 +31,7 @@ d3.csv("citi_bike_2020.csv").then(function(data){
 
     // -- setting margins -- //
     const margin = { left: 150, right: 150, top: 150, bottom: 150, gap: 70};
-    const width =  WIDTH - margin.left/2 - margin.right/2;
+    const width =  WIDTH - margin.left/1.5 - margin.right/2;
     const height = 3*(HEIGHT-margin.top - margin.bottom - margin.gap)/5
 
     // -- set x and y scales -- //
@@ -52,15 +52,15 @@ d3.csv("citi_bike_2020.csv").then(function(data){
         .call(yAxis);
     
     // -- Adding axis labels in proper places -- //
-    let xLabel_scatter = 'trip-duration-start-from';
-    let yLabel_scatter = 'trip-duration-end-in';
+    let xLabel = 'trip-duration-start-from';
+    let yLabel = 'trip-duration-end-in';
     scatterPlotLayer.append('text')
-        .text(xLabel_scatter)
+        .text(xLabel)
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${width - 90}, ${height - 10})`)
         .attr('class', 'xLabel_scatter')
-    scatterPlotLayer.append('text')
-        .text(yLabel_scatter)
+        scatterPlotLayer.append('text')
+        .text(yLabel)
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${width*0.03}, ${height*0.2}) rotate(-90)`)
         .attr('class', 'xLabel_scatter')
