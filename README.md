@@ -10,6 +10,6 @@ Using D3 to visualize the Citi Bike System Data
 ### IDE and packages
 (1) VSCode
   
-(2) to run, just fo to index.html, and click "go live"
+(2) to run, just go to index.html, and click "go live"
   
 
