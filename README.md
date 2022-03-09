@@ -3,14 +3,14 @@ Info Vis Homework 2
 Using D3 to visualize the Citi Bike System Data
 
 ### Folders and what's inside
-(1) folders with "Qx.x": original raw file with local environment directly uploaded from my computer, might not work on other machines
+(1) folders with "Qx.x": original raw files with local environment directly uploaded from my computer, might not work on other machines
 
 (2) folders with "Questionx.x": the files to run. Need to run the commands below in order for them to work.
 
 ### IDE and packages
 (1) VSCode
 
-(2) before running anything in folders with the word "Question" -- those are withough webpack, in VSCode terminal, run the following:
+(2) before running anything in folders containing the word "Question", go to VSCode terminal, run the following:
   
   (i) npm i -D webpack webpack-cli
   
