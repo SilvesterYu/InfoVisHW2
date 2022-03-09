@@ -15,11 +15,11 @@ d3.csv("citi_bike_2020.csv").then(function(data){
 
   // -- Convert attributes into numbers -- //
   data.forEach(d => {
-    d.latitude = +d.latitude;
     d.longitude = +d.longitude;
+    d.latitude = +d.latitude;
     d.start = +d.start;
-    d.tripdurationS = +d.tripdurationS;
     d.end = +d.end;
+    d.tripdurationS = +d.tripdurationS;
     d.tripdurationE = +d.tripdurationE;
   });
   // -- log the loaded data -- //
@@ -30,44 +30,22 @@ d3.csv("citi_bike_2020.csv").then(function(data){
     //Q2.1 Scatter Plot
 
     // -- setting margins -- //
-    const margin = { left: 150, right: 150, top: 150, bottom: 150, gap: 70};
-    const width =  WIDTH - margin.left/1.5 - margin.right/2;
-    const height = 3*(HEIGHT-margin.top - margin.bottom - margin.gap)/5
+    const margin = { left: 100, right: 200, top: 150, bottom: 150, gap: 70};
+
+    // -- drawn in the half above in svg -- //
+    const width =  WIDTH - margin.left/2 - margin.right/2;
+    const height = (HEIGHT - margin.top - margin.bottom - margin.gap)/2;
 
     // -- set x and y scales -- //
     const xScale_spl = Scales.linear(0, d3.max(data, (d)=> d.tripdurationS), 0, width);
     const yScale_spl = Scales.linear(0, d3.max(data, (d)=> d.tripdurationE), height, 0);
-  
-    // -- x and y axis -- //
-    const xAxis = d3.axisBottom(xScale_spl).ticks(13);
-    const yAxis = d3.axisLeft(yScale_spl).ticks(5);
 
-    // -- scatterplot with x and y axis -- //
     const scatterPlotLayer = svg.append("g")
      .attr("transform", "translate(" + margin.left + "," + margin.top +")");
-    scatterPlotLayer.append('g')
-        .call(xAxis)
-        .attr('transform', `translate(0, ${height})`);
-    scatterPlotLayer.append('g')
-        .call(yAxis);
-    
-    // -- Adding axis labels in proper places -- //
-    let xLabel = 'trip-duration-start-from';
-    let yLabel = 'trip-duration-end-in';
-    scatterPlotLayer.append('text')
-        .text(xLabel)
-        .attr('text-anchor', 'middle')
-        .attr('transform', `translate(${width - 90}, ${height - 10})`)
-        .attr('class', 'xLabel_scatter')
-        scatterPlotLayer.append('text')
-        .text(yLabel)
-        .attr('text-anchor', 'middle')
-        .attr('transform', `translate(${width*0.03}, ${height*0.2}) rotate(-90)`)
-        .attr('class', 'xLabel_scatter')
 
     // -- default showing the data for May -- //
     console.log(getDataByMonth(data, 'May'))
-    drawPoints(scatterPlotLayer, getDataByMonth(data, 'May'), xScale_spl, yScale_spl, div, width, height/2);
+    drawPoints(scatterPlotLayer, getDataByMonth(data, 'May'), xScale_spl, yScale_spl, div, width, height);
 
     /*
     //Q2.2 Bar Chart
