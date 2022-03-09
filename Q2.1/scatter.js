@@ -6,25 +6,19 @@ export let drawPoints = (scatterPlotLayer, data, xScale, yScale, div, scatterPlo
     const yAxis = d3.axisLeft(yScale).ticks(5);
 
     // -- scatterplot with x and y axis -- //
-    scatterPlotLayer.append('g')
-        .call(xAxis)
+    scatterPlotLayer.append('g').call(xAxis)
         .attr('transform', `translate(0, ${scatterPlotHeight})`);
-    scatterPlotLayer.append('g')
-        .call(yAxis);
+    scatterPlotLayer.append('g').call(yAxis);
     
     // -- Adding axis labels in proper places -- //
     let xLabel = 'trip-duration-start-from';
     let yLabel = 'trip-duration-end-in';
-    scatterPlotLayer.append('text')
-        .text(xLabel)
+    scatterPlotLayer.append('text').text(xLabel)
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${scatterPlotWidth*0.88}, ${scatterPlotHeight*0.95})`)
-        .attr('class', 'xLabel_scatter')
-        scatterPlotLayer.append('text')
-        .text(yLabel)
+        scatterPlotLayer.append('text').text(yLabel)
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${0.03*scatterPlotWidth}, ${scatterPlotHeight*0.25}) rotate(-90)`)
-        .attr('class', 'xLabel_scatter')
 
     // -- create scatter plot -- //
     scatterPlotLayer.selectAll('.point')
@@ -46,7 +40,7 @@ export let drawPoints = (scatterPlotLayer, data, xScale, yScale, div, scatterPlo
         .transition()
         .attr('r', '10')
         .style('fill', 'red');
-
+        
         div.transition().style("color", "darkblue").style("opacity", 1);
         
         let showword = div.html(d.station);

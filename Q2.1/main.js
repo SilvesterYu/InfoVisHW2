@@ -3,6 +3,7 @@ import { getDataByMonth } from './data_filter.js';
 import { drawPoints } from './scatter.js';
 //import { drawBars } from './bar.js'; 
 
+
 const svg = d3.select('svg');
 const WIDTH = svg.attr('width');
 const HEIGHT = svg.attr('height'); 
@@ -30,22 +31,23 @@ d3.csv("citi_bike_2020.csv").then(function(data){
     //Q2.1 Scatter Plot
 
     // -- setting margins -- //
-    const margin = { left: 100, right: 200, top: 150, bottom: 150, gap: 70};
+    const margin = { left: 100, right: 200, top: 75, bottom: 75, gap: 70};
 
     // -- drawn in the half above in svg -- //
     const width =  WIDTH - margin.left/2 - margin.right/2;
-    const height = (HEIGHT - margin.top - margin.bottom - margin.gap)/2;
+    const height = HEIGHT - margin.top - margin.bottom;
 
     // -- set x and y scales -- //
     const xScale_spl = Scales.linear(0, d3.max(data, (d)=> d.tripdurationS), 0, width);
-    const yScale_spl = Scales.linear(0, d3.max(data, (d)=> d.tripdurationE), height, 0);
+    const yScale_spl = Scales.linear(0, d3.max(data, (d)=> d.tripdurationE), height/2 - margin.gap/2, 0);
 
     const scatterPlotLayer = svg.append("g")
      .attr("transform", "translate(" + margin.left + "," + margin.top +")");
 
     // -- default showing the data for May -- //
     console.log(getDataByMonth(data, 'May'))
-    drawPoints(scatterPlotLayer, getDataByMonth(data, 'May'), xScale_spl, yScale_spl, div, width, height);
+    drawPoints(scatterPlotLayer, getDataByMonth(data, 'May'), xScale_spl, yScale_spl, div, width, height/2 - margin.gap/2);
+
 
     /*
     //Q2.2 Bar Chart
