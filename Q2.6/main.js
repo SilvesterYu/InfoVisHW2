@@ -76,6 +76,9 @@ d3.csv("citi_bike_2020.csv").then(function(data){
       slidertext.attr('value', month[this.value-1]);
       d3.selectAll('.point').remove();
       d3.selectAll('.bar').remove();
+      d3.selectAll('.xAxis').remove();
+      d3.selectAll('.yAxis').remove();
+      d3.selectAll('.labels').remove();
 
     // -- Q2.6 Make bars sorted -- //
     let thisMonthSort = getDataByMonth(data, month[this.value-1]).sort(function(x, y){
