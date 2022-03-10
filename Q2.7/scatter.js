@@ -66,7 +66,6 @@ export let drawPoints = (scatterPlotLayer, data, xScale, yScale, div, scatterPlo
         d3.select(this).transition()
         .attr('r', '10').style('fill', 'red');
         
-        
         div.transition().style("color", "darkblue").style("opacity", 1);
 
         let showword = div.html(d.station);
