@@ -69,6 +69,9 @@ d3.csv("citi_bike_2020.csv").then(function(data){
       slidertext.attr('value', month[this.value-1]);
       d3.selectAll('.point').remove();
       d3.selectAll('.bar').remove();
+      d3.selectAll('.xAxis').remove();
+      d3.selectAll('.yAxis').remove();
+      d3.selectAll('.labels').remove();
       drawPoints(scatterPlotLayer, getDataByMonth(data, month[this.value-1]), xScale_spl, yScale_spl, div, width, height/2 - margin.gap/2);
       drawBars(barChartLayer, getDataByMonth(data,  month[this.value-1]), xScale_bar, yScale_bar, width, (height/2 - margin.gap/2), div);
 

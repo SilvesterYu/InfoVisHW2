@@ -14,9 +14,11 @@ export let drawPoints = (scatterPlotLayer, data, xScale, yScale, div, scatterPlo
     let xLabel = 'trip-duration-start-from';
     let yLabel = 'trip-duration-end-in';
     scatterPlotLayer.append('text').text(xLabel)
+    .attr("class", "labels")
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${scatterPlotWidth*0.88}, ${scatterPlotHeight*0.95})`)
         scatterPlotLayer.append('text').text(yLabel)
+        .attr("class", "labels")
         .attr('text-anchor', 'middle')
         .attr('transform', `translate(${0.03*scatterPlotWidth}, ${scatterPlotHeight*0.25}) rotate(-90)`)
 

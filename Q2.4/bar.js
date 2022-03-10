@@ -24,7 +24,7 @@ export let drawBars = (barChatLayer, data, xScale, yScale, barChartWidth, barCha
         .attr("transform", `translate(${barChartWidth*0.05}, 0)`)
         .text(yLabel)
         .attr('text-anchor', 'middle')
-        .attr('class', 'xLabel_scatter')
+        .attr('class', 'labels')
 
     // -- draw the bars -- //
     barChatLayer.selectAll('.bar')
