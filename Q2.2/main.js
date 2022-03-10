@@ -31,8 +31,8 @@ d3.csv("citi_bike_2020.csv").then(function(data){
     //Q2.1 Scatter Plot
 
     // -- setting margins -- //
-    const margin = { left: 100, right: 200, top: 75, bottom: 75, gap: 70};
-
+    const margin = { left: 100, right: 200, top: 50, bottom: 250, gap: 70};
+    
     // -- drawn in the half above in svg -- //
     const width =  WIDTH - margin.left/2 - margin.right/2;
     const height = HEIGHT - margin.top - margin.bottom;
