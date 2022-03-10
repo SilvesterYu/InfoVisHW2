@@ -8,6 +8,7 @@ export let drawBars = (barChatLayer, data, xScale, yScale, barChartWidth, barCha
     .attr("transform", `translate(0, ${barChartHeight*1.05})`)
     .call(xAxis)
     .attr("class", "xAxis")
+    .attr("class", "xAxis")
     .selectAll("text")
     .style("text-anchor", "end")
     .attr("transform", function (d) {
@@ -16,6 +17,7 @@ export let drawBars = (barChatLayer, data, xScale, yScale, barChartWidth, barCha
     barChatLayer.append('g')
     .attr("transform", `translate(0, ${barChartHeight*0.05})`)
         .call(yAxis)
+        .attr("class", "xAxis")
         .attr("class", "yAxis");
 
     // -- label y axis -- //
